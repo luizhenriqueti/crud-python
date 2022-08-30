@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Pessoa
+import datetime as dt
 
 
 # Create your views here.
@@ -8,10 +9,14 @@ def home(request):
     return render(request, 'index.html', {'pessoas': pessoas})
 
 
-
 def salvar(request):
     nome = request.POST.get('nome')
-    Pessoa.objects.create(nome=nome)
+    cpf = request.POST.get('cpf')
+    rg = request.POST.get('rg')
+    data_nascimento = request.POST.get('data_nascimento')
+
+    Pessoa.objects.create(nome=nome, cpf=cpf, rg=rg, data_nascimento=data_nascimento)
+
     pessoas = Pessoa.objects.all()
     return render(request, 'index.html', {'pessoas': pessoas})
 

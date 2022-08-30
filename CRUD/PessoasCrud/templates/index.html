@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    Hello World
+
     {% for pessoa in pessoas %}
         <li>
             {{pessoa.id}} {{pessoa.nome}}
@@ -19,9 +19,24 @@
 
     <form action="{% url 'salvar' %}" method="POST">
         {% csrf_token %}
-        <input type="text" name="nome" id="nome">
+        <div>
+            <label>nome</label>
+            <input type="text" name="nome" id="nome">
+        </div>
+        <div>
+             <label>Data nascimento</label>
+            <input type="date" name="data_nascimento" id="data_nascimento">
+        </div>
+        <div>
+            <label>CPF</label>
+            <input type="text" name="cpf" id="cpf">
+        </div>
+        <div>
+            <label>RG</label>
+            <input type="text" name="rg" id="rg">
+        </div>
+
         <button type="submit">Salvar</button>
     </form>
 
-</body>
-</html>
+
