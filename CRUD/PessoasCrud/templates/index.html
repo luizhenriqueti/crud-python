@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-
+    <h1>LISTANDO PESSOAS CADASTRADAS</h1>
     {% for pessoa in pessoas %}
         <li>
             {{pessoa.id}} {{pessoa.nome}}
@@ -17,6 +17,9 @@
         </li>
     {% endfor %}
 
+    <hr>
+
+    <h1>CADASTRAR UMA NOVO PESSOA</h1>
     <form action="{% url 'salvar' %}" method="POST">
         {% csrf_token %}
         <div>
