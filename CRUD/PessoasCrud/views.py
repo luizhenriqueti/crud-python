@@ -32,8 +32,16 @@ def editar(request, id):
 
 def update(request, id):
     nome = request.POST.get('nome')
+    data_nascimento = request.POST.get('data_nascimento')
+    cpf = request.POST.get('cpf')
+    rg = request.POST.get('rg')
+    print(request)
     pessoa = Pessoa.objects.get(id=id)
+
     pessoa.nome = nome
+    pessoa.cpf = cpf
+    pessoa.rg = rg
+    pessoa.data_nascimento = data_nascimento
     pessoa.save()
     return redirect(home)
 
