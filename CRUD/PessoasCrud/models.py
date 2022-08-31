@@ -2,7 +2,6 @@ from django.db import models
 
 
 class Pessoa(models.Model):
-    #id = models.IntegerField(primary_key=True)
     nome = models.CharField(max_length=100)
     cpf = models.CharField(max_length=15)
     rg = models.CharField(max_length=20)
