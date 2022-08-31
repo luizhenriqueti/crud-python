@@ -3,8 +3,6 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('/', home),
-
     #PESSOAS
     path('salvar/', salvar, name='salvar'),
     path('editar/<int:id>', editar, name='editar'),
