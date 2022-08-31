@@ -1,10 +1,7 @@
 from django.db import models
 
 
-
-# Create your models here.
 class Pessoa(models.Model):
-    id = models.IntegerField(primary_key=True)
     nome = models.CharField(max_length=100)
     cpf = models.CharField(max_length=15)
     rg = models.CharField(max_length=20)

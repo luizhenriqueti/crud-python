@@ -23,18 +23,26 @@ def salvar(request):
 
 def editar(request, id):
     pessoa = Pessoa.objects.get(id=id)
+    pessoa.data_nascimento = dt.datetime.strftime(pessoa.data_nascimento, "%Y-%m-%d")
     return render(request, 'update.html', {'pessoa': pessoa})
 
 
 def update(request, id):
     nome = request.POST.get('nome')
+    data_nascimento = request.POST.get('data_nascimento')
+    cpf = request.POST.get('cpf')
+    rg = request.POST.get('rg')
     pessoa = Pessoa.objects.get(id=id)
+
     pessoa.nome = nome
+    pessoa.cpf = cpf
+    pessoa.rg = rg
+    pessoa.data_nascimento = data_nascimento
     pessoa.save()
     return redirect(home)
 
 
-def deletar(request, id):
-    pessoa = Pessoa.objects.get(id)
+def delete(request, id):
+    pessoa = Pessoa.objects.get(id=id)
     pessoa.delete()
     return redirect(home)
