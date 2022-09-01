@@ -42,4 +42,31 @@
         <button type="submit">Salvar</button>
     </form>
 
+    <h1>Cadastrar Novo Endereço</h1>
+    <form action="{% url 'salvar_endereco' %}" method="POST">
+        {% csrf_token %}
+        <div>
+            <label>Rua/Avenida</label>
+            <input type="text" name="logradouro" id="logradouro">
+        </div>
+        <div>
+            <label>Numero</label>
+            <input type="text" name="numero" id="numero">
+        </div>
+        <div>
+            <label>Bairro</label>
+            <input type="text" name="bairro" id="bairro">
+        </div>
+        <div>
+            <select name="pessoa_id" id="pessoa_id">
+            {% for pessoa in pessoas %}
+                <option value="{{pessoa.id}}">{{pessoa.nome}}</option>
+            {% endfor %}
+            </select>                       
+        </div>
+        <button type="submit">Salvar</button>
+    </form>
+
+</body>
+
 

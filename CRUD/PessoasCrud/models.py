@@ -12,8 +12,9 @@ class Pessoa(models.Model):
 
 
 class Endereco(models.Model):
-    nome = models.CharField(max_length=150)
+    logradouro = models.CharField(max_length=150)
     numero = models.IntegerField()
+    bairro = models.CharField(max_length=150)
     pessoa = models.ForeignKey(Pessoa,on_delete=models.CASCADE)
 
     def __str__(self):
